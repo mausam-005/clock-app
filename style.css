@@ -8,22 +8,20 @@
 body {
     background: linear-gradient(45deg, #1a1a1a, #0d0d0d, #000000);
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
     position: relative;
     overflow: hidden;
     color: #f5f5f5;
 }
 
 .app {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    height: calc(100vh - 60px);
     padding: 20px;
-    min-height: 0;
-    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .clock {
@@ -41,7 +39,6 @@ body {
     opacity: 0;
     animation: fadeIn 1s ease-out 0.3s forwards;
     transition: all 0.3s ease;
-    margin-bottom: 20px;
 }
 
 @keyframes fadeIn {
@@ -231,10 +228,12 @@ body {
 }
 
 .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     text-align: center;
     padding: 10px 0;
-    width: 100%;
-    flex-shrink: 0;
 }
 
 .footer-text {
@@ -274,14 +273,11 @@ body {
     transform: scaleX(1);
 }
 
+/* responsive */
 @media (max-width: 600px) {
-    .app {
-        padding: 15px;
-    }
-    
     .clock {
         padding: 25px;
-        max-width: 90%;
+        max-width: 450px;
     }
 
     .analog-clock {
@@ -325,17 +321,14 @@ body {
     }
 
     .footer-text {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 400px) {
-    .app {
-        padding: 10px;
-    }
-    
     .clock {
-        padding: 20px;
+        padding: 25px;
+        max-width: 300px;
     }
 
     .analog-clock {
@@ -375,11 +368,6 @@ body {
     }
 
     .digital-clock .ampm {
-        font-size: 0.8rem;
-    }
-
-    .footer-text {
-        font-size: 0.8rem;
-        padding: 5px 10px;
+        font-size: 0.6rem;
     }
 }
