@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #1a1a1a, #0d0d0d, #000000);
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 60px;
+    color: #f5f5f5;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+}
+
+.clock {
+    position: relative;
+    padding: 40px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #2e2e2e, #1f1f1f);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 450px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(0);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.3s forwards;
+    transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    white-space: nowrap;
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    margin: 20px 0;
+}
+
+.analog-clock {
+    height: 260px;
+    width: 260px;
+    position: relative;
+    border-radius: 50%;
+    background: rgba(40, 40, 40, 0.8);
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar-seconds, .number-hours {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.bar-seconds span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 6deg));
+    inset: -12px;
+    text-align: center;
+}
+
+.bar-seconds span p {
+    width: 2px;
+    height: 6px;
+    background: #777;
+    border-radius: 2px;
+    opacity: 0.8;
+    display: inline-block;
+}
+
+.bar-seconds span:nth-child(5n) p {
+    width: 4px;
+    height: 10px;
+    transform: translateY(1px);
+    opacity: 1;
+}
+
+.number-hours span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 30deg));
+    inset: 6px;
+    text-align: center;
+}
+
+.number-hours span p {
+    font-size: 18px;
+    color: #d1d1d1;
+    font-weight: 600;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    transform: rotate(calc(var(--index) * -30deg));
+}
+
+.hands {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hands .hand {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.hands .hand i {
+    display: inline-block;
+    transform-origin: bottom;
+    border-radius: 4px;
+}
+
+.hands .hours {
+    width: 160px;
+    height: 160px;
+}
+
+.hands .hours i {
+    width: 6px;
+    height: 80px;
+    background: #e0e0e0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.hands .minutes {
+    width: 200px;
+    height: 200px;
+}
+
+.hands .minutes::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #888;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(136, 136, 136, 0.5);
+    z-index: 10;
+}
+
+.hands .minutes i {
+    width: 4px;
+    height: 100px;
+    background: #888;
+    box-shadow: 0 0 12px rgba(136, 136, 136, 0.4);
+}
+
+.hands .seconds {
+    width: 240px;
+    height: 240px;
+}
+
+.hands .seconds::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(255, 107, 107, 0.6);
+    z-index: 11;
+}
+
+.hands .seconds i {
+    width: 2px;
+    height: calc(130px + 25px);
+    background: #ff6b6b;
+    box-shadow: 0 0 12px rgba(255, 107, 107, 0.4);
+}
+
+.digital-clock {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 40px;
+}
+
+.digital-clock .time {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+}
+
+.digital-clock .ampm {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #aaaaaa;
+    margin: 0;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+    padding: 8px 20px;
+    white-space: nowrap;
+}
+
+.mausam-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.mausam-link:hover {
+    color: #bbb;
+}
+
+.mausam-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #bbb;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.mausam-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* responsive */
+@media (max-width: 600px) {
+    .clock {
+        padding: 25px;
+        max-width: 450px;
+    }
+
+    .analog-clock {
+        height: 200px;
+        width: 200px;
+    }
+
+    .hands .hours {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hands .hours i {
+        height: 60px;
+    }
+
+    .hands .minutes {
+        width: 160px;
+        height: 160px;
+    }
+
+    .hands .minutes i {
+        height: 80px;
+    }
+
+    .hands .seconds {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hands .seconds i {
+        height: calc(100px + 20px);
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .digital-clock .time {
+        font-size: 2.3rem;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .clock {
+        padding: 25px;
+        max-width: 300px;
+    }
+
+    .analog-clock {
+        height: 170px;
+        width: 170px;
+    }
+
+    .hands .hours {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hands .hours i {
+        height: 50px;
+    }
+
+    .hands .minutes {
+        width: 130px;
+        height: 130px;
+    }
+
+    .hands .minutes i {
+        height: 60px;
+    }
+
+    .hands .seconds {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hands .seconds i {
+        height: calc(80px + 15px);
+    }
+
+    .digital-clock .time {
+        font-size: 1.8rem;
+    }
+
+    .digital-clock .ampm {
+        font-size: 0.6rem;
+    }
+}
