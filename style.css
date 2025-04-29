@@ -326,7 +326,11 @@ body {
     }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 410px) {
+    .clock-container {
+        width: 420px;
+    }
+
     .clock {
         padding: 25px;
         max-width: 90%;
@@ -364,16 +368,32 @@ body {
         height: calc(90px + 15px);
     }
 
+    .digital-clock {
+        margin-top: 10px;
+    }
+
+    .title {
+        font-size: 1.7rem;
+    }
+
     .digital-clock .time {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     .digital-clock .ampm {
         font-size: 0.9rem;
     }
+
+    .footer-text{
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 320px) {
+    .clock-container {
+        width: 300px;
+    }
+
     .clock {
         padding: 25px;
         max-width: 90%;
@@ -413,6 +433,11 @@ body {
 
     .title {
         font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .digital-clock {
+        margin-top: 0;
     }
 
     .digital-clock .time {
