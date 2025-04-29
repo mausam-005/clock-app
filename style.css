@@ -283,17 +283,17 @@ body {
     }
 
     .hands .hours {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
 
     .hands .hours i {
-        height: 60px;
+        height: 70px;
     }
 
     .hands .minutes {
-        width: 160px;
-        height: 160px;
+        width: 145px;
+        height: 145px;
     }
 
     .hands .minutes i {
@@ -301,20 +301,24 @@ body {
     }
 
     .hands .seconds {
-        width: 180px;
-        height: 180px;
+        width: 16px;
+        height: 160px;
     }
 
     .hands .seconds i {
-        height: calc(100px + 20px);
+        height: calc(95px + 20px);
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 2.1rem;
     }
 
     .digital-clock .time {
-        font-size: 2.3rem;
+        font-size: 1.8rem;
+    }
+
+    .digital-clock .ampm {
+        font-size: 1rem;
     }
 
     .footer-text {
@@ -322,24 +326,24 @@ body {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 440px) {
     .clock {
         padding: 25px;
         max-width: 90%;
     }
 
     .analog-clock {
-        height: 170px;
-        width: 170px;
+        height: 180px;
+        width: 180px;
     }
 
     .hands .hours {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
 
     .hands .hours i {
-        height: 50px;
+        height: 70px;
     }
 
     .hands .minutes {
@@ -357,7 +361,7 @@ body {
     }
 
     .hands .seconds i {
-        height: calc(80px + 15px);
+        height: calc(90px + 15px);
     }
 
     .digital-clock .time {
@@ -365,6 +369,57 @@ body {
     }
 
     .digital-clock .ampm {
-        font-size: 0.6rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .clock {
+        padding: 25px;
+        max-width: 90%;
+    }
+
+    .analog-clock {
+        height: 180px;
+        width: 180px;
+    }
+
+    .hands .hours {
+        width: 90px;
+        height: 90px;
+    }
+
+    .hands .hours i {
+        height: 50px;
+    }
+
+    .hands .minutes {
+        width: 140px;
+        height: 140px;
+    }
+
+    .hands .minutes i {
+        height: 70px;
+    }
+
+    .hands .seconds {
+        width: 160px;
+        height: 160px;
+    } 
+
+    .hands .seconds i {
+        height: calc(90px + 15px);
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .digital-clock .time {
+        font-size: 1.3rem;
+    }
+
+    .footer-text {
+        font-size: 0.65rem;
     }
 }
