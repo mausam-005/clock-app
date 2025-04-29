@@ -78,7 +78,6 @@ body {
     border-radius: 50%;
     background: rgba(40, 40, 40, 0.8);
     box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5), 0 0 35px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +108,7 @@ body {
 
 .bar-seconds span:nth-child(5n) p {
     width: 4px;
-    height: 10px;
+    height: 12px;
     transform: translateY(1px);
     opacity: 1;
 }
@@ -278,7 +277,7 @@ body {
     transform: scaleX(1);
 }
 
-/* Responsive styles */
+/* Responsive*/
 @media (max-width: 768px) {
     .clock {
         padding: 30px;
