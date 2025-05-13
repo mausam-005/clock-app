@@ -255,6 +255,7 @@ body {
     cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .mausam-link:hover {
